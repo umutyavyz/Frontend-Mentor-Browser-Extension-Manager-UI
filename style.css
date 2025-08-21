@@ -1,21 +1,21 @@
 @font-face {
   font-family: "NotoSans";
-  src: url("./assets/fonts/static/NotoSans-Regular.ttf") format("truetype");
-  font-weight: 400; /* normal */
+  src: url("./fonts/static/NotoSans-Regular.ttf") format("truetype");
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NotoSansBold";
-  src: url("./assets/fonts/static/NotoSans-Bold.ttf") format("truetype");
-  font-weight: 700; /* bold */
+  src: url("./fonts/static/NotoSans-Bold.ttf") format("truetype");
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NotoSansMedium";
-  src: url("./assets/fonts/static/NotoSans-Medium.ttf") format("truetype");
-  font-weight: 500; /* medium */
+  src: url(".//fonts/static/NotoSans-Medium.ttf") format("truetype");
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -45,22 +45,28 @@ body.light-theme #moon-icon {
   --active-button-bg: hsl(3, 71%, 56%);
   --active-button-text: #000000;
   --active-button-border: #ff5e5e;
+  --pages-button-bg: hsl(226, 25%, 17%);
+  --pages-button-border: #51576d;
+  --pages-button-hover-bg: hsl(226, 11%, 37%);
 }
 
 /* Açık tema için değişkenlerin değerlerini değiştiriyoruz */
 body.light-theme {
-  --background-color: ##edf6fb;
+  --background-color: #edf6fb;
   --searchbar-bg: #fcfdff;
   --searchbar-btn-bg: #eeefea;
-  --main-text-color: #333;
+  --main-text-color: #111838;
   --secondary-text-color: #666;
   --box-bg: #fff;
   --box-border: #ddd;
   --remove-btn-border: #ddd;
   --slider-bg: #ccc;
-  --active-button-bg: #ff5e5e;
+  --active-button-bg: #c32317;
   --active-button-text: #fff;
-  --active-button-border: #ff5e5e;
+  --active-button-border: #c32317;
+  --pages-button-bg: #ffffff;
+  --pages-button-border: #ddd;
+  --pages-button-hover-bg: #fdfcff;
 }
 
 /* Ortak stiller */
@@ -68,7 +74,7 @@ body {
   background: var(--background-color);
   padding: 20px 150px;
   padding-bottom: 50px;
-  transition: background-color 0.5s ease; /* Renk geçişi için animasyon */
+  transition: background-color 0.5s ease;
 }
 
 .container {
@@ -107,8 +113,13 @@ body {
   border: none;
   transition: background 0.5s ease, color 0.5s ease;
 }
-.search-bar button:hover {
+
+.search-bar button#theme-toggle:hover {
   background: hsl(226, 11%, 37%);
+}
+
+body.light-theme .search-bar button#theme-toggle:hover {
+  background: #c5c5c4;
 }
 
 .pages {
@@ -145,14 +156,16 @@ body {
   font-size: 16px;
   padding: 10px 15px;
   cursor: pointer;
-  background: var(--searchbar-btn-bg);
+  background: var(--pages-button-bg);
   color: var(--main-text-color);
-  border: 1px solid var(--searchbar-bg);
+  border: 1px solid var(--pages-button-border);
   transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
+
 .pages button:hover {
-  background: hsl(226, 11%, 37%);
+  background: var(--pages-button-hover-bg);
 }
+
 .pages button.active-filter {
   background-color: var(--active-button-bg);
   color: var(--active-button-text);
@@ -209,9 +222,9 @@ body {
 
 .text-content h2 {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700; /* Kalınlaştırmak için değiştirildi */
   margin: 0;
-  color: var(--main-text-color); /* Değişken eklendi */
+  color: var(--main-text-color); /* Tema değişkeni kullanıldı */
   transition: color 0.5s ease;
 }
 
