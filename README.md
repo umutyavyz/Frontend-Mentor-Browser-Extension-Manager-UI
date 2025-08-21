@@ -15,15 +15,15 @@ The goal was to build a modern, fully responsive browser extension management in
 
 ### Desktop Design
 
-| Dark Mode | Light Mode |
-|-----------|------------|
-| <img src="images/screenshots/desktop_dark.png" alt="Desktop Dark Screenshot" width="100%"> | <img src="images/screenshots/desktop_light.png" alt="Desktop Light Screenshot" width="100%"> |
+<img src="images/screenshots/desktop_dark.png" alt="Desktop Dark Screenshot" width="100%">
+<img src="images/screenshots/desktop_light.png" alt="Desktop Light Screenshot" width="100%">
 
 ### Mobile Design
 
 | Dark Mode | Light Mode |
 |-----------|------------|
 | <img src="images/screenshots/mobile_dark.png" alt="Mobile Dark Screenshot" width="100%"> | <img src="images/screenshots/mobile_light.png" alt="Mobile Light Screenshot" width="100%"> |
+
 
 ---
 
