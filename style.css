@@ -1,125 +1,174 @@
-@font-face{
-    font-family: "NotoSans";
-    src: url("./assets/fonts/static/NotoSans-Regular.ttf") format("truetype");
-    font-weight: 400; /* normal */
-    font-style: normal;
+@font-face {
+  font-family: "NotoSans";
+  src: url("./assets/fonts/static/NotoSans-Regular.ttf") format("truetype");
+  font-weight: 400; /* normal */
+  font-style: normal;
 }
 
-@font-face{
-    font-family: "NotoSansBold";
-    src: url("./assets/fonts/static/NotoSans-Bold.ttf") format("truetype");
-    font-weight: 700; /* bold */
-    font-style: normal;
+@font-face {
+  font-family: "NotoSansBold";
+  src: url("./assets/fonts/static/NotoSans-Bold.ttf") format("truetype");
+  font-weight: 700; /* bold */
+  font-style: normal;
 }
 
-@font-face{
-    font-family: "NotoSansMedium";
-    src: url("./assets/fonts/static/NotoSans-Medium.ttf") format("truetype");
-    font-weight: 500; /* medium */
-    font-style: normal;
+@font-face {
+  font-family: "NotoSansMedium";
+  src: url("./assets/fonts/static/NotoSans-Medium.ttf") format("truetype");
+  font-weight: 500; /* medium */
+  font-style: normal;
 }
 
-body{
-    background: hsl(227, 75%, 14%);
-    padding: 20px 150px;
-    padding-bottom: 50px; /* En alt kısma 50px boşluk ekle */
-}
-.container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-.search-bar{
-    width: 100%;
-    padding: 10px 0px;
-    border-radius: 20px;
-    background: hsl(0, 0%, 78%);
-    display: flex;
-    justify-content: space-between;
-    font-family: "NotoSansBold", sans-serif;
-    font-weight: bold;
-    font-size: 24px;
+#moon-icon {
+  display: none;
 }
 
-.search-bar button{
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-    border-radius: 10px;
-    font-family: "NotoSansBold", sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 12px 12px;
-    margin-right: 10px;
-    cursor: pointer;
-    background: hsl(226, 25%, 17%);
-    border: none;
-}
-.search-bar button:hover{
-    transition: ease-in-out 0.5s;
-    background: hsl(226, 11%, 37%);
+body.light-theme #sun-icon {
+    display: none;
 }
 
-.pages{
-    width: 100%;
-    height: 60px;
-    margin-top: 30px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    font-family: "NotoSansBold", sans-serif;
-    font-weight: bold;
-    font-size: 26px;
+body.light-theme #moon-icon {
+    display: block;
 }
 
-.pages > :first-child{
-    margin-right: auto;
+/* Koyu ve Açık Tema için renk değişkenlerini tanımlıyoruz */
+:root {
+  --background-color: hsl(227, 75%, 14%);
+  --searchbar-bg: #1f2535;
+  --searchbar-btn-bg: #2f354d;
+  --main-text-color: white;
+  --secondary-text-color: #a0a0b0;
+  --box-bg: #21212c;
+  --box-border: #505060;
+  --remove-btn-border: #505060;
+  --slider-bg: #505060;
+  --active-button-bg: hsl(3, 71%, 56%);
+  --active-button-text: #000000;
+  --active-button-border: #ff5e5e;
 }
 
-/* Masaüstü ve tablet için butonları bir arada tutan div */
+/* Açık tema için değişkenlerin değerlerini değiştiriyoruz */
+body.light-theme {
+  --background-color: ##edf6fb;
+  --searchbar-bg: #fcfdff;
+  --searchbar-btn-bg: #eeefea;
+  --main-text-color: #333;
+  --secondary-text-color: #666;
+  --box-bg: #fff;
+  --box-border: #ddd;
+  --remove-btn-border: #ddd;
+  --slider-bg: #ccc;
+  --active-button-bg: #ff5e5e;
+  --active-button-text: #fff;
+  --active-button-border: #ff5e5e;
+}
+
+/* Ortak stiller */
+body {
+  background: var(--background-color);
+  padding: 20px 150px;
+  padding-bottom: 50px;
+  transition: background-color 0.5s ease; /* Renk geçişi için animasyon */
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px 0px;
+  border-radius: 20px;
+  background: var(--searchbar-bg);
+  display: flex;
+  justify-content: space-between;
+  font-family: "NotoSansBold", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  transition: background 0.5s ease;
+}
+
+.search-bar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-family: "NotoSansBold", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: var(--searchbar-btn-bg);
+  color: var(--main-text-color);
+  border: none;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+.search-bar button:hover {
+  background: hsl(226, 11%, 37%);
+}
+
+.pages {
+  width: 100%;
+  height: 60px;
+  margin-top: 30px;
+  color: var(--main-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  font-family: "NotoSansBold", sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  transition: color 0.5s ease;
+}
+
+.pages > :first-child {
+  margin-right: auto;
+}
+
 .filter-buttons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
-.pages button{
-    font-family: "NotoSansMedium", sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-    border-radius: 20px;
-    font-family: "NotoSansBold", sans-serif;
-    font-size: 16px;
-    padding: 10px 15px;
-    cursor: pointer;
-    background: hsl(226, 25%, 17%);
-    color: white;
-    border: 1px solid hsl(0, 0%, 78%);
+.pages button {
+  font-family: "NotoSansMedium", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-family: "NotoSansBold", sans-serif;
+  font-size: 16px;
+  padding: 10px 15px;
+  cursor: pointer;
+  background: var(--searchbar-btn-bg);
+  color: var(--main-text-color);
+  border: 1px solid var(--searchbar-bg);
+  transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
-.pages button:hover{
-    transition: ease-in-out 0.5s;
-    background:  hsl(226, 11%, 37%);
+.pages button:hover {
+  background: hsl(226, 11%, 37%);
 }
 .pages button.active-filter {
-  background-color: #ff5e5e; /* Kırmızı renk */
-  color: #000000; /* Yazı rengini beyaza çevir */
-  border: 1px solid #ff5e5e;
-  font-weight: 500;
+  background-color: var(--active-button-bg);
+  color: var(--active-button-text);
+  border: 1px solid var(--active-button-border);
 }
 
 .main-content {
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
 .box {
-    background-color: #21212c;
-  color: white;
+  background-color: var(--box-bg);
+  color: var(--main-text-color);
   padding: 20px 20px;
   font-family: "NotoSans", sans-serif;
   font-size: 14px;
@@ -127,17 +176,23 @@ body{
   display: flex;
   flex-direction: column;
   gap: 30px;
-  border: 2px solid #505060;
+  border: 2px solid var(--box-border);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+.box.removing {
+  opacity: 0;
+  transform: translateX(-20px);
 }
 
 .box-top {
-    display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .box-left {
-    display: flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   gap: 15px;
 }
 
@@ -156,13 +211,16 @@ body{
   font-size: 16px;
   font-weight: 600;
   margin: 0;
+  color: var(--main-text-color); /* Değişken eklendi */
+  transition: color 0.5s ease;
 }
 
 .text-content p {
   font-size: 12px;
   font-weight: 400;
-  color: #a0a0b0;
+  color: var(--secondary-text-color);
   margin: 0;
+  transition: color 0.5s ease;
 }
 
 .box-bottom {
@@ -173,12 +231,13 @@ body{
 
 .remove-btn {
   background-color: transparent;
-  color: #fff;
-  border: 1px solid #505060;
+  color: var(--main-text-color);
+  border: 1px solid var(--remove-btn-border);
   border-radius: 20px;
   padding: 8px 16px;
   font-size: 14px;
   cursor: pointer;
+  transition: color 0.5s ease, border-color 0.5s ease;
 }
 .remove-btn:hover {
   background-color: hsl(3, 77%, 44%);
@@ -206,8 +265,8 @@ body{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #505060;
-  transition: .4s;
+  background-color: var(--slider-bg);
+  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -219,93 +278,91 @@ body{
   left: 2px;
   bottom: 2px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #ff5e5e;
+  background-color: var(--active-button-bg);
 }
 
 input:checked + .slider:before {
   transform: translateX(20px);
 }
 
-
 /* --- Media Queries --- */
 
 /* Ara Geçiş ve Geniş Ekran Tablet (1025px - 1200px) */
 @media (min-width: 1025px) and (max-width: 1200px) {
-    body {
-        padding: 20px 80px; 
-    }
-    
-    .main-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
+  body {
+    padding: 20px 80px;
+  }
+
+  .main-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
 /* Tablet (601px - 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
-    body {
-        padding: 20px 40px;
-        padding-bottom: 50px;
-    }
-    
-    .main-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
+  body {
+    padding: 20px 40px;
+    padding-bottom: 50px;
+  }
 
-    .pages button {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
+  .main-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .pages button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
 }
 
 /* Mobil (600px ve altı) */
 @media (max-width: 600px) {
-    body {
-        padding: 10px;
-        padding-bottom: 50px;
-    }
-    
-    .search-bar {
-        font-size: 16px;
-        width: 100%;
-    }
-    
-    .pages {
-        
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        gap: 10px;
-    }
-    .filter-buttons {text-align: center;
-        width: 70%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between; /* Butonları eşit aralıklı yap */
-        gap: 10px;
-    }
-    
-    .pages > :first-child {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .pages button {
-        /* Butonların mobil genişliği için */
-        width: auto;
-        flex-grow: 1; /* Butonların boşluğu doldurmasını sağlar */
-        font-size: 12px;
-        text-align: center; /* İçindeki metni ortalar */
-    }
+  body {
+    padding: 10px;
+    padding-bottom: 50px;
+  }
 
-    .main-content {
-        margin-top: 20px;
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
+  .search-bar {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .pages {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 10px;
+  }
+  .filter-buttons {
+    text-align: center;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .pages > :first-child {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pages button {
+    width: auto;
+    flex-grow: 1;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .main-content {
+    margin-top: 20px;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 }
