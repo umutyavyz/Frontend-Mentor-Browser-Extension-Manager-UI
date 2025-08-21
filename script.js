@@ -121,7 +121,7 @@ function displayFilteredExtensions(filter = 'all') {
         boxDiv.innerHTML = `
             <div class="box-top">
                 <div class="box-left">
-                    <img style="width: 64px; height: 64px;" src="${extension.logo}" alt="${extension.name} logo">
+                    <img src="${extension.logo}" alt="${extension.name} logo">
                     <div class="text-content">
                         <h2>${extension.name}</h2>
                         <p>${extension.description}</p>
