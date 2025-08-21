@@ -33,7 +33,7 @@ body.light-theme #moon-icon {
 
 /* Koyu ve Açık Tema için renk değişkenlerini tanımlıyoruz */
 :root {
-  --background-color: hsl(227, 75%, 14%);
+  --background-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
   --searchbar-bg: #1f2535;
   --searchbar-btn-bg: #2f354d;
   --main-text-color: white;
@@ -52,7 +52,7 @@ body.light-theme #moon-icon {
 
 /* Açık tema için değişkenlerin değerlerini değiştiriyoruz */
 body.light-theme {
-  --background-color: #edf6fb;
+  --background-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
   --searchbar-bg: #fcfdff;
   --searchbar-btn-bg: #eeefea;
   --main-text-color: #111838;
@@ -71,10 +71,10 @@ body.light-theme {
 
 /* Ortak stiller */
 body {
-  background: var(--background-color);
+  background: var(--background-gradient);
   padding: 20px 150px;
   padding-bottom: 50px;
-  transition: background-color 0.5s ease;
+  transition: background 0.5s ease;
 }
 
 .container {
@@ -120,21 +120,6 @@ body {
 
 body.light-theme .search-bar button#theme-toggle:hover {
   background: #c5c5c4;
-}
-
-body.light-theme .search-bar {
-  border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .pages button {
-  border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .box {
-  border: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .pages {
@@ -225,8 +210,8 @@ body.light-theme .box {
 }
 
 .box-left img {
-  width: 64px; /* HTML'den kaldırılıp buraya taşındı */
-  height: 64px; /* HTML'den kaldırılıp buraya taşındı */
+  width: 64px;
+  height: 64px;
 }
 
 .text-content {
@@ -237,7 +222,7 @@ body.light-theme .box {
 
 .text-content h2 {
   font-size: 18px;
-  font-weight: 700; /* `font-weight` 700 olarak ayarlandı */
+  font-weight: 700;
   margin: 0;
   color: var(--main-text-color);
   transition: color 0.5s ease;
