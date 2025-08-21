@@ -23,11 +23,10 @@ The goal was to build a modern, fully responsive browser extension management in
 
 ### Mobile Design
 
-**Dark Mode**  
-<img src="images/screenshots/mobile_dark.png" alt="Mobile Dark Screenshot" width="100%">
+| Dark Mode | Light Mode |
+|-----------|------------|
+| <img src="images/screenshots/mobile_dark.png" alt="Mobile Dark Screenshot" width="100%"> | <img src="images/screenshots/mobile_light.png" alt="Mobile Light Screenshot" width="100%"> |
 
-**Light Mode**  
-<img src="images/screenshots/mobile_light.png" alt="Mobile Light Screenshot" width="100%">
 
 
 
