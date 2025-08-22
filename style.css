@@ -72,23 +72,26 @@ body.light-theme {
 /* Ortak stiller */
 html,
 body {
-  height: 100%; /* HTML ve body elementlerinin tam yüksekliği almasını sağlar */
-  margin: 0; /* Tarayıcının varsayılan margin'lerini kaldırır */
-  padding: 0; /* Tarayıcının varsayılan padding'lerini kaldırır */
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background: var(--background-gradient);
-  background-size: cover; /* Arka planın tüm alanı kaplamasını sağlar */
-  background-attachment: fixed; /* Arka planın sabit kalmasını sağlar */
-  padding: 20px 150px; /* Mevcut padding'leriniz */
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 20px 150px;
   padding-bottom: 50px;
   transition: background 0.5s ease;
+  
+  /* Eklenen kod: Arka planı 1440px yüksekliğe ayarlar */
+  height: 1440px; 
 }
 
 .container {
   width: 100%;
-  min-height: 100vh; /* İçerik az olduğunda dahi en az viewport yüksekliği kadar olmasını sağlar */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
