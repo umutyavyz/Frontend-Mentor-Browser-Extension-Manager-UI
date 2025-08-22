@@ -14,7 +14,7 @@
 
 @font-face {
   font-family: "NotoSansMedium";
-  src: url(".//fonts/static/NotoSans-Medium.ttf") format("truetype");
+  src: url("./fonts/static/NotoSans-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
@@ -72,6 +72,8 @@ body.light-theme {
 /* Ortak stiller */
 body {
   background: var(--background-gradient);
+  min-height: 100vh; /* Sayfanın en az görünür alan kadar olmasını sağlar */
+  background-attachment: fixed; /* Arka planın sabit kalmasını sağlar */
   padding: 20px 150px;
   padding-bottom: 50px;
   transition: background 0.5s ease;
@@ -79,7 +81,6 @@ body {
 
 .container {
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
 }
